@@ -22,7 +22,7 @@ namespace Memory {
     
     function main(): void {
 
-        Player();
+        player();
 
         creatCardList(numPairsInt);
 
@@ -34,7 +34,7 @@ namespace Memory {
 
 //Spieleranzahl eingeben
     
-    function Player(): number {
+    function player(): number {
         var numPlayer: string = prompt("Gewünschte Anzahl der Spieler   min. 1 | max. 4", "");
         numPlayerInt = parseInt(numPlayer);
 
@@ -44,14 +44,14 @@ namespace Memory {
         }
         else {
             alert("Deine Zahl liegt nicht zwischen 1 und 4");
-            Player();
+            player();
         }
     }
 
 
 
 //Kartenpaare eingeben
-    function Pair(): number {
+    function pair(): number {
         var numPairs: string = prompt("Gewünschte Anzahl der Kartenpaare   min. 1 | max. 26");
         numPairsInt = parseInt(numPairs);
 
@@ -61,13 +61,13 @@ namespace Memory {
         }
         else {
             alert("Deine Zahl liegt nicht zwischen 1 und 26");
-            Pair();
+            pair();
         }
 
     }
 
 
-    let amount: number = Pair();
+    let amount: number = pair();
 
 
 
@@ -109,7 +109,7 @@ namespace Memory {
 
  //Karten erstellen
     
-    function creatCards(_numPairs: number, state: string[] = ["hidden", "open", "taken"]): void {
+    function creatCards(_numPairs: number): void {
         let node: any = document.getElementById("spielfeld");
         let childNodeHTML: string;
         let i: number = 0;
