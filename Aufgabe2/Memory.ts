@@ -130,7 +130,7 @@ namespace Memory {
             childNodeHTML += " </div> ";
             node.innerHTML += childNodeHTML;
 
-
+            var remove = cardPush.splice(random, 1)
         }
         
         
