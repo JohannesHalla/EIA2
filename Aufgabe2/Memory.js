@@ -4,6 +4,7 @@ Matrikel:258434
 Datum: 15.04.2018
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert. */
+
 var Memory;
 (function (Memory) {
     let numPlayers;
