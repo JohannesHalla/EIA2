@@ -12,15 +12,17 @@ var Memory;
     let cardPush = [];
     var numPairsInt;
     var numPlayerInt;
+    let numOpenCards = 0;
+    let cardShuffle = [];
     document.addEventListener('DOMContentLoaded', main);
-    //Hauptfunktion Ablauf
+    //Hauptfunktion Ablauf   
     function main() {
         player();
         creatCardList(numPairsInt);
         enterName(numPlayerInt);
-        creatCards(numPairsInt);
+        createCards(numPairsInt);
     }
-    //Spieleranzahl eingeben
+    //Spieleranzahl eingeben    
     function player() {
         var numPlayer = prompt("Gewünschte Anzahl der Spieler   min. 1 | max. 4", "");
         numPlayerInt = parseInt(numPlayer);
@@ -34,7 +36,7 @@ var Memory;
     }
     //Kartenpaare eingeben
     function pair() {
-        var numPairs = prompt("Gewünschte Anzahl der Kartenpaare   min. 1 | max. 26");
+        var numPairs = prompt("Gewünschte Anzahl der Kartenpaare min. 1 | max. 26");
         numPairsInt = parseInt(numPairs);
         if (numPairsInt >= 1 && numPairsInt <= 26) {
             return numPairsInt;
@@ -70,7 +72,7 @@ var Memory;
         }
     }
     //Karten erstellen
-    function creatCards(_numPairs) {
+    function createCards(_numPairs) {
         let node = document.getElementById("spielfeld");
         let childNodeHTML;
         let i = 0;
@@ -78,14 +80,35 @@ var Memory;
             let min = 0;
             let max = (cardPush.length);
             var random = Math.floor(Math.random() * Math.floor(max));
-            childNodeHTML = "<div  class='card" + "hidden" + "' id='Karte" + i + "'>";
+            childNodeHTML = "<div  class='hidden" + "' id='Karte" + i + "'>";
             childNodeHTML += "<h3>";
             childNodeHTML += cardPush[random];
             childNodeHTML += "</h3>";
             childNodeHTML += " </div> ";
             node.innerHTML += childNodeHTML;
             var remove = cardPush.splice(random, 1);
+            // Karte anklickbar
+            var status = document.getElementsByClassName("hidden");
+            for (let i = 0; i < status.length; i++) {
+                status[i].addEventListener("click", changeStatus);
+            }
+        }
+        // Status von hidden auf open
+        function changeStatus(_event) {
+            let t = _event.target;
+            if (t.className = "hidden") {
+                numOpenCards++;
+                if (!(numOpenCards > 2)) {
+                    if (t.className = "hidden") {
+                        t.classList.remove("hidden");
+                        t.classList.add("open");
+                    }
+                    console.log(numOpenCards);
+                }
+            }
+            let changeStatus = cardShuffle;
+            console.log(cardShuffle);
         }
     }
 })(Memory || (Memory = {}));
-//# sourceMappingURL=Memory.js.map
+//# sourceMappingURL=Memory1.1.js.map

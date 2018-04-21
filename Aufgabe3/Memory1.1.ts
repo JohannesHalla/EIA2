@@ -13,12 +13,13 @@ namespace Memory {
     let cardPush: string[] = [];
     var numPairsInt: number;
     var numPlayerInt: number;
+    let numOpenCards: number = 0;
+    let cardShuffle: string[] = [];
 
 
     document.addEventListener('DOMContentLoaded', main);
 
-//Hauptfunktion Ablauf
-    
+    //Hauptfunktion Ablauf   
     function main(): void {
 
         player();
@@ -27,12 +28,11 @@ namespace Memory {
 
         enterName(numPlayerInt);
 
-        creatCards(numPairsInt);
+        createCards(numPairsInt);
     }
 
 
-//Spieleranzahl eingeben
-    
+    //Spieleranzahl eingeben    
     function player(): number {
         var numPlayer: string = prompt("Gewünschte Anzahl der Spieler   min. 1 | max. 4", "");
         numPlayerInt = parseInt(numPlayer);
@@ -49,9 +49,9 @@ namespace Memory {
 
 
 
-//Kartenpaare eingeben
+    //Kartenpaare eingeben
     function pair(): number {
-        var numPairs: string = prompt("Gewünschte Anzahl der Kartenpaare   min. 1 | max. 26");
+        var numPairs: string = prompt("Gewünschte Anzahl der Kartenpaare min. 1 | max. 26");
         numPairsInt = parseInt(numPairs);
 
         if (numPairsInt >= 1 && numPairsInt <= 26) {
@@ -70,14 +70,14 @@ namespace Memory {
 
 
 
-//Spielernamen erzeugen
+    //Spielernamen erzeugen
     function enterName(_numPlayer: number): void {
         let node: any = document.getElementById("spielernamen");
         let childNodeHTML: string;
 
         for (let i: number = 0; i < _numPlayer; i++) {
 
-                     
+
             childNodeHTML = "<div>";
             childNodeHTML += "<h2>";
             childNodeHTML += "<p class='namen'>";
@@ -91,9 +91,9 @@ namespace Memory {
 
 
 
-    
-//Inhalt der Karten erzeugen
-    
+
+    //Inhalt der Karten erzeugen
+
     function creatCardList(x: number): void {
         for (let i: number = 1; i <= x; i++) {
             var content: string = cardContent[0];
@@ -106,9 +106,9 @@ namespace Memory {
     }
 
 
- //Karten erstellen
-    
-    function creatCards(_numPairs: number): void {
+    //Karten erstellen
+
+    function createCards(_numPairs: number): void {
         let node: any = document.getElementById("spielfeld");
         let childNodeHTML: string;
         let i: number = 0;
@@ -122,7 +122,8 @@ namespace Memory {
 
 
 
-            childNodeHTML = "<div  class='card" + "hidden" + "' id='Karte" + i + "'>";
+
+            childNodeHTML = "<div  class='hidden" + "' id='Karte" + i + "'>";
             childNodeHTML += "<h3>";
             childNodeHTML += cardPush[random];
             childNodeHTML += "</h3>";
@@ -130,26 +131,60 @@ namespace Memory {
             node.innerHTML += childNodeHTML;
 
             var remove = cardPush.splice(random, 1)
+
+
+            // Karte anklickbar
+
+            var status = document.getElementsByClassName("hidden");
+
+            for (let i: number = 0; i < status.length; i++) {
+
+
+                status[i].addEventListener("click", changeStatus);
+
+            }
+
         }
-        
-        
+
+
+        // Status von hidden auf open
+
+        function changeStatus(_event: MouseEvent): void {
+
+            let t: HTMLElement = <HTMLElement>_event.target;
+
+            if (t.className = "hidden") {
+
+                numOpenCards++;
+
+                if (!(numOpenCards > 2)) {
+                    if (t.className = "hidden") {
+                        t.classList.remove("hidden");
+                        t.classList.add("open");
+                    }
+
+                    console.log(numOpenCards);
+
+
+                }
+            }
+            function creatCardList(x: number): void {
+                for (let i: number = 1; i <= x; i++) {
+                    var content: string = cardContent[0];
+                    cardPush.push(content);
+                    cardPush.push(content);
+
+                    var remove = cardContent.splice(0, 1);
+
+                }
+            }
+
+            function pushContent(classList: string): void {
+                for (let i: number = 0; i < 2; i++) {
+                    var compare: string = cardShuffle[0];
+                    classList.push(compare);
+                }
+            }
+        }
     }
-    
- //Status vergeben 
-    
-/*  function randomStatus(): string {
-    let randomStatus: number = Math.random();
-    if (randomStatus <= .5) {
-      return "hidden";
-    } else if (randomStatus > .5 && randomStatus <= .95) {
-      return "taken";
-    } else if (randomStatus > .95) {
-      return "open";
-    }
-  
-
-
-
 }
-   */ 
-    }
