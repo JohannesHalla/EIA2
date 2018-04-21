@@ -168,16 +168,7 @@ namespace Memory {
 
                 }
             }
-            function creatCardList(x: number): void {
-                for (let i: number = 1; i <= x; i++) {
-                    var content: string = cardContent[0];
-                    cardPush.push(content);
-                    cardPush.push(content);
 
-                    var remove = cardContent.splice(0, 1);
-
-                }
-            }
 
             function pushContent(classList: string): void {
                 for (let i: number = 0; i < 2; i++) {
