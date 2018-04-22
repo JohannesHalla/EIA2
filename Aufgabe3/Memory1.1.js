@@ -101,38 +101,38 @@ var Memory;
                 t.classList.add("open");
                 numOpenCards++;
                 if (numOpenCards == 2) {
-                    setTimeout(compareCards, 2000);
+                    setTimeout(compareContent, 2000); // Zeit
                 }
                 if (numOpenCards > 2) {
                     t.classList.remove("open");
                     t.classList.add("hidden");
                 }
-                console.log(numOpenCards);
-                function compareCards() {
-                    let card1 = document.getElementsByClassName("open")[0];
-                    let card2 = document.getElementsByClassName("open")[1];
-                    clickedCards.push(card1, card2);
-                    console.log(clickedCards);
+                //  console.log(numOpenCards);
+                // Karten vergleichen
+                function compareContent() {
+                    let karte1 = document.getElementsByClassName("open")[0];
+                    let karte2 = document.getElementsByClassName("open")[1];
+                    clickedCards.push(karte1, karte2);
                     if (clickedCards[0].innerHTML == clickedCards[1].innerHTML) {
+                        // Karten werden genommen
                         clickedCards[0].classList.remove("open");
                         clickedCards[0].classList.add("taken");
                         clickedCards[1].classList.remove("open");
                         clickedCards[1].classList.add("taken");
-                        //   score ++;
-                        console.log("Karetnpaaar abeglegt");
                     }
                     else {
                         clickedCards[0].classList.remove("open");
-                        clickedCards[0].classList.add("hidden");
                         clickedCards[1].classList.remove("open");
+                        clickedCards[0].classList.add("hidden");
                         clickedCards[1].classList.add("hidden");
                     }
-                    //        openCards Variabel wieder auf 0 setzen 
                     numOpenCards = 0;
-                    //        opeList Array löschen 
+                    // clickedCards-Array Inhalt löschen
                     clickedCards.splice(0, 2);
-                    if (numPairs == 0) {
-                        alert("Gratulation! Du hast gewonnen");
+                    function gratulation() {
+                        if (numPairs == 0) {
+                            alert("Gratulation! Du hast gewonnen");
+                        }
                     }
                 }
             }
