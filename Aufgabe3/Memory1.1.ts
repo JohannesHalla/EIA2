@@ -92,7 +92,6 @@ namespace Memory {
 
 
     //Inhalt der Karten erzeugen
-
     function creatCardList(x: number): void {
         for (let i: number = 1; i <= x; i++) {
             var content: string = cardContent[0];
@@ -106,7 +105,6 @@ namespace Memory {
 
 
     //Karten erstellen
-
     function createCards(_numPairs: number): void {
         let node: any = document.getElementById("spielfeld");
         let childNodeHTML: string;
@@ -137,7 +135,6 @@ namespace Memory {
 
 
         // Karte anklickbar
-
         var status = document.getElementsByClassName("hidden");
 
 
@@ -151,7 +148,6 @@ namespace Memory {
 
 
         // Status von hidden auf open
-
         function changeStatus(_event: MouseEvent): void {
 
             let t: HTMLElement = <HTMLElement>_event.currentTarget;
@@ -175,9 +171,7 @@ namespace Memory {
 
                 //  console.log(numOpenCards);
 
-
                 // Karten vergleichen
-
                 function compareContent(): void {
                     let karte1: HTMLDivElement = <HTMLDivElement>document.getElementsByClassName("open")[0];
                     let karte2: HTMLDivElement = <HTMLDivElement>document.getElementsByClassName("open")[1];
@@ -227,4 +221,3 @@ namespace Memory {
     }
 
 }
-
