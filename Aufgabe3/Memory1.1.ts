@@ -15,7 +15,7 @@ namespace Memory {
     var numPlayerInt: number;
     let numOpenCards: number = 0;
     let clickedCards: HTMLElement[] = [];
-    let x: number = cardPush.length;
+    let x: number = 0;
 
     document.addEventListener('DOMContentLoaded', main);
 
@@ -132,9 +132,6 @@ namespace Memory {
 
         }
 
-
-
-
         // Karte anklickbar
         var status = document.getElementsByClassName("hidden");
 
@@ -168,7 +165,8 @@ namespace Memory {
                     t.classList.add("hidden");
 
                 }
-
+}
+}
 
                 //  console.log(numOpenCards);
 
@@ -181,7 +179,7 @@ namespace Memory {
 
                     if (clickedCards[0].innerHTML == clickedCards[1].innerHTML) {
 
-                        // Karten werden genommen
+                        // Karten werden vom Spielfeld genommen
                         clickedCards[0].classList.remove("open");
                         clickedCards[0].classList.add("taken");
 
@@ -191,7 +189,7 @@ namespace Memory {
 
                         x++;
                         ende();
-
+                        console.log(x)
 
                     }
                     // Karten werden wieder zugedeckt            
@@ -209,7 +207,7 @@ namespace Memory {
 
 
     function ende(): void{
-    if (x == 0){
+    if (x == numPairsInt){
 
         alert("Herzlichen Glückwunsch!");
         
@@ -222,7 +220,6 @@ namespace Memory {
                     }
 
                 }
-            }
-        }
+
     
 

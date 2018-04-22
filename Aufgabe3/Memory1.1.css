@@ -32,7 +32,8 @@
 	margin: 1.5em; 
 	text-align: center; 
 	padding: 2em; 
-	color: #fff
+	color: #fff;
+	visibility:hidden;
 }
 
 .cardtaken h3 {

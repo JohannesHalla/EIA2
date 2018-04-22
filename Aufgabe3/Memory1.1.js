@@ -14,7 +14,7 @@ var Memory;
     var numPlayerInt;
     let numOpenCards = 0;
     let clickedCards = [];
-    let x = cardPush.length;
+    let x = 0;
     document.addEventListener('DOMContentLoaded', main);
     //Hauptfunktion Ablauf   
     function main() {
@@ -108,35 +108,36 @@ var Memory;
                     t.classList.remove("open");
                     t.classList.add("hidden");
                 }
-                //  console.log(numOpenCards);
-                // Karten vergleichen
-                function compareContent() {
-                    let karte1 = document.getElementsByClassName("open")[0];
-                    let karte2 = document.getElementsByClassName("open")[1];
-                    clickedCards.push(karte1, karte2);
-                    if (clickedCards[0].innerHTML == clickedCards[1].innerHTML) {
-                        // Karten werden genommen
-                        clickedCards[0].classList.remove("open");
-                        clickedCards[0].classList.add("taken");
-                        clickedCards[1].classList.remove("open");
-                        clickedCards[1].classList.add("taken");
-                        x++;
-                        ende();
-                    }
-                    else {
-                        clickedCards[0].classList.remove("open");
-                        clickedCards[1].classList.remove("open");
-                        clickedCards[0].classList.add("hidden");
-                        clickedCards[1].classList.add("hidden");
-                    }
-                    numOpenCards = 0;
-                    // clickedCards-Array Inhalt löschen
-                    clickedCards.splice(0, 2);
-                    function ende() {
-                        if (x == 0) {
-                            alert("Herzlichen Glückwunsch!");
-                        }
-                    }
+            }
+        }
+        //  console.log(numOpenCards);
+        // Karten vergleichen
+        function compareContent() {
+            let karte1 = document.getElementsByClassName("open")[0];
+            let karte2 = document.getElementsByClassName("open")[1];
+            clickedCards.push(karte1, karte2);
+            if (clickedCards[0].innerHTML == clickedCards[1].innerHTML) {
+                // Karten werden vom Spielfeld genommen
+                clickedCards[0].classList.remove("open");
+                clickedCards[0].classList.add("taken");
+                clickedCards[1].classList.remove("open");
+                clickedCards[1].classList.add("taken");
+                x++;
+                ende();
+                console.log(x);
+            }
+            else {
+                clickedCards[0].classList.remove("open");
+                clickedCards[1].classList.remove("open");
+                clickedCards[0].classList.add("hidden");
+                clickedCards[1].classList.add("hidden");
+            }
+            numOpenCards = 0;
+            // clickedCards-Array Inhalt löschen
+            clickedCards.splice(0, 2);
+            function ende() {
+                if (x == numPairsInt) {
+                    alert("Herzlichen Glückwunsch!");
                 }
             }
         }
