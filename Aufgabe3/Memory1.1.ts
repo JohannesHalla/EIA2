@@ -15,6 +15,7 @@ namespace Memory {
     var numPlayerInt: number;
     let numOpenCards: number = 0;
     let clickedCards: HTMLElement[] = [];
+    let x: number = cardPush.length;
 
     document.addEventListener('DOMContentLoaded', main);
 
@@ -188,7 +189,8 @@ namespace Memory {
                         clickedCards[1].classList.remove("open");
                         clickedCards[1].classList.add("taken");
 
-
+                        x++;
+                        ende();
 
 
                     }
@@ -206,10 +208,14 @@ namespace Memory {
                     clickedCards.splice(0, 2);
 
 
+    function ende(): void{
+    if (x == 0){
 
-                    function gratulation(): void {
-                        if (numPairs == 0) {
-                            alert("Gratulation! Du hast gewonnen");
+        alert("Herzlichen Glückwunsch!");
+        
+    }
+}
+
                         }
 
 
@@ -218,6 +224,5 @@ namespace Memory {
                 }
             }
         }
-    }
+    
 
-}

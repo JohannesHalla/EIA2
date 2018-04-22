@@ -14,6 +14,7 @@ var Memory;
     var numPlayerInt;
     let numOpenCards = 0;
     let clickedCards = [];
+    let x = cardPush.length;
     document.addEventListener('DOMContentLoaded', main);
     //Hauptfunktion Ablauf   
     function main() {
@@ -119,6 +120,8 @@ var Memory;
                         clickedCards[0].classList.add("taken");
                         clickedCards[1].classList.remove("open");
                         clickedCards[1].classList.add("taken");
+                        x++;
+                        ende();
                     }
                     else {
                         clickedCards[0].classList.remove("open");
@@ -129,9 +132,9 @@ var Memory;
                     numOpenCards = 0;
                     // clickedCards-Array Inhalt löschen
                     clickedCards.splice(0, 2);
-                    function gratulation() {
-                        if (numPairs == 0) {
-                            alert("Gratulation! Du hast gewonnen");
+                    function ende() {
+                        if (x == 0) {
+                            alert("Herzlichen Glückwunsch!");
                         }
                     }
                 }
