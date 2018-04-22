@@ -14,8 +14,7 @@ namespace Memory {
     var numPairsInt: number;
     var numPlayerInt: number;
     let numOpenCards: number = 0;
-    let cardShuffle: string[] = [];
-
+    let clickedCards: HTMLElement[] = [];
 
     document.addEventListener('DOMContentLoaded', main);
 
@@ -132,50 +131,104 @@ namespace Memory {
 
             var remove = cardPush.splice(random, 1)
 
-
-            // Karte anklickbar
-
-            var status = document.getElementsByClassName("hidden");
-
-            for (let i: number = 0; i < status.length; i++) {
+        }
 
 
-                status[i].addEventListener("click", changeStatus);
 
-            }
+
+        // Karte anklickbar
+
+        var status = document.getElementsByClassName("hidden");
+
+
+
+        for (let i: number = 0; i < status.length; i++) {
+
+
+            status[i].addEventListener("click", changeStatus);
 
         }
+
+
 
 
         // Status von hidden auf open
 
         function changeStatus(_event: MouseEvent): void {
 
-            let t: HTMLElement = <HTMLElement>_event.target;
+            let t: HTMLElement = <HTMLElement>_event.currentTarget;
 
             if (t.className = "hidden") {
-
-                numOpenCards++;
-
-                if (!(numOpenCards > 2)) {
-                    if (t.className = "hidden") {
-                        t.classList.remove("hidden");
-                        t.classList.add("open");
+                t.classList.remove("hidden");
+                t.classList.add("open");
+                    numOpenCards++;
+                                                  
+                    if (numOpenCards == 2) {
+                        setTimeout(compareCards, 2000);
                     }
+                
+                    if (numOpenCards > 2) {
+                        t.classList.remove("open");
+                        t.classList.add("hidden");
+
+
+
+
+
+                    }
+
 
                     console.log(numOpenCards);
 
 
-                }
-            }
+                
 
+ function compareCards () :void {
+        let card1:HTMLDivElement=<HTMLDivElement>document.getElementsByClassName("open")[0];
+        let card2:HTMLDivElement=<HTMLDivElement>document.getElementsByClassName("open")[1];
+        
+        clickedCards.push (card1, card2);
+        console.log(clickedCards);
+         if (clickedCards[0].innerHTML==clickedCards[1].innerHTML){
+            
+             clickedCards[0].classList.remove("open"); 
+             clickedCards[0].classList.add("taken");
+             
+            
+             clickedCards[1].classList.remove("open"); 
+             clickedCards[1].classList.add("taken");
+               
+          //   score ++;
+             console.log("Karetnpaaar abeglegt");
+             
+            
+        
+    }
+     
+        else { clickedCards[0].classList.remove("open"); 
+             clickedCards[0].classList.add("hidden");
+             
+            
+             clickedCards[1].classList.remove("open"); 
+             clickedCards[1].classList.add("hidden");
+             
+             }
+//        openCards Variabel wieder auf 0 setzen 
+        numOpenCards=0;
+//        opeList Array löschen 
+        clickedCards.splice(0, 2);
 
-            function pushContent(classList: string): void {
-                for (let i: number = 0; i < 2; i++) {
-                    var compare: string = cardShuffle[0];
-                    classList.push(compare);
-                }
+        
+ if (numPairs == 0) {
+      alert("Gratulation! Du hast gewonnen");
+    }
+
+         
+        }
+
             }
         }
     }
 }
+
+

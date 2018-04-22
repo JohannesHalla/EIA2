@@ -13,7 +13,7 @@ var Memory;
     var numPairsInt;
     var numPlayerInt;
     let numOpenCards = 0;
-    let cardShuffle = [];
+    let clickedCards = [];
     document.addEventListener('DOMContentLoaded', main);
     //Hauptfunktion Ablauf   
     function main() {
@@ -87,27 +87,55 @@ var Memory;
             childNodeHTML += " </div> ";
             node.innerHTML += childNodeHTML;
             var remove = cardPush.splice(random, 1);
-            // Karte anklickbar
-            var status = document.getElementsByClassName("hidden");
-            for (let i = 0; i < status.length; i++) {
-                status[i].addEventListener("click", changeStatus);
-            }
+        }
+        // Karte anklickbar
+        var status = document.getElementsByClassName("hidden");
+        for (let i = 0; i < status.length; i++) {
+            status[i].addEventListener("click", changeStatus);
         }
         // Status von hidden auf open
         function changeStatus(_event) {
-            let t = _event.target;
+            let t = _event.currentTarget;
             if (t.className = "hidden") {
+                t.classList.remove("hidden");
+                t.classList.add("open");
                 numOpenCards++;
-                if (!(numOpenCards > 2)) {
-                    if (t.className = "hidden") {
-                        t.classList.remove("hidden");
-                        t.classList.add("open");
+                if (numOpenCards == 2) {
+                    setTimeout(compareCards, 2000);
+                }
+                if (numOpenCards > 2) {
+                    t.classList.remove("open");
+                    t.classList.add("hidden");
+                }
+                console.log(numOpenCards);
+                function compareCards() {
+                    let card1 = document.getElementsByClassName("open")[0];
+                    let card2 = document.getElementsByClassName("open")[1];
+                    clickedCards.push(card1, card2);
+                    console.log(clickedCards);
+                    if (clickedCards[0].innerHTML == clickedCards[1].innerHTML) {
+                        clickedCards[0].classList.remove("open");
+                        clickedCards[0].classList.add("taken");
+                        clickedCards[1].classList.remove("open");
+                        clickedCards[1].classList.add("taken");
+                        //   score ++;
+                        console.log("Karetnpaaar abeglegt");
                     }
-                    console.log(numOpenCards);
+                    else {
+                        clickedCards[0].classList.remove("open");
+                        clickedCards[0].classList.add("hidden");
+                        clickedCards[1].classList.remove("open");
+                        clickedCards[1].classList.add("hidden");
+                    }
+                    //        openCards Variabel wieder auf 0 setzen 
+                    numOpenCards = 0;
+                    //        opeList Array löschen 
+                    clickedCards.splice(0, 2);
+                    if (numPairs == 0) {
+                        alert("Gratulation! Du hast gewonnen");
+                    }
                 }
             }
-            let changeStatus = cardShuffle;
-            console.log(cardShuffle);
         }
     }
 })(Memory || (Memory = {}));
