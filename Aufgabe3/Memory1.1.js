@@ -97,7 +97,7 @@ var Memory;
         // Status von hidden auf open
         function changeStatus(_event) {
             let t = _event.currentTarget;
-            if (t.className = "hidden") {
+            if (t.className == "hidden") {
                 t.classList.remove("hidden");
                 t.classList.add("open");
                 numOpenCards++;
