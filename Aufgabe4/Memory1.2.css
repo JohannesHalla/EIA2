@@ -1,0 +1,81 @@
+	
+}.open {
+	float: left; 
+	height: 5em; 
+	width: 5em; 
+	background-color: #dfdee0; 
+	margin: 1.5em; 
+	text-align: center; 
+	padding: 2em; 
+}
+
+.hidden {
+	float: left; 
+	height: 5em; 
+	width: 5em; 
+	background-color: #dfce5c; 
+	margin: 1.5em; 
+	text-align: center; 
+	padding: 2em; 
+}
+
+.hidden h3 {
+	color: #dfce5c;
+}
+
+
+
+.taken {
+	float: left; 
+	height: 5em; 
+	width: 5em; 
+	background-color: #fff; 
+	margin: 1.5em; 
+	text-align: center; 
+	padding: 2em; 
+	color: #fff;
+	visibility:hidden;
+}
+
+.cardtaken h3 {
+	color: #fff;
+}
+
+
+.namen {
+	
+}
+
+.hiddenHeader {
+	display:none;
+}
+
+.letters {
+	float: left; 
+	height: 4em; 
+	width: 4em; 
+	background-color: #fbfcff; 
+	margin: 1.5em; 
+	text-align: center; 
+	padding: 1.5em; 
+	
+}
+.animals {
+	float: left; 
+	height: 6em; 
+	width: 6em; 
+	background-color: #b4dfb9; 
+	margin: 2em; 
+	text-align: center; 
+	padding: 2em; 
+}
+.cities {
+	float: left; 
+	height: 5.5em; 
+	width: 5.5em; 
+	background-color: #debcdf; 
+	margin: 1.5em; 
+	text-align: center; 
+	padding: 2em; 
+	
+}
