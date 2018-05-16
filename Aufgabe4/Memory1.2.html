@@ -1,56 +1,69 @@
+<!--
+		Aufgabe: Aufgabe 4
+        Name: Fabio Armbruster
+        Matrikel: 257708
+        Datum: 22.3.2018
+        Hiermit versichere ich, dass der Code in Zusammenarbeit erstellt wurde. */
+-->
 
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
+
 <head>
-<title>Aufgabe 4</title>
-<meta charset="utf-8" />
-<link rel="stylesheet" href="Memory1.2.css" type="text/css"
-	media="screen" />
-<script src="Memory1.2.js" type="text/javascript" charset="utf-8"></script>
-<script src="ProcessformMemory.js" type="text/javascript"
-	charset="utf-8"></script>
+
+<title>Memory Johannes Halla</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="Memory1.2.css">
+<script type="text/javascript" src="Memory1.2.js"></script>
+<script type="text/javascript" src="ProcessFormMemory.js"></script>
 </head>
 
 <body>
+<h1>Welcome to the Memory Game!</h1>
 <header>
-	<div id="menu">
-		<h2>Welcome to Memory Deluxe!</h2>
-		<fieldset>
-			<legend>Spielaufbau</legend>
-			<h3>Please select the deck you'd like to play with!</h3>
-			<select id="content">
-				<optgroup label="Deck"></optgroup>
-				<option value="option1">Letters</option>
-				<option value="option2">Animals</option>
-				<option value="option3">Cities</option>
+
+	<fieldset id="anzahlSpieler">
+		<legend>How many Player's are you?</legend>
+			<input id="plqyers" type="number" name="Spieler"
+			placeholder="1 - 4 Spieler" min="1" max="4" />
+		</fieldset>	
+		
+		<fieldset id="spielername">
+			<legend>What are your names?</legend>
+			<input type="text" name="name" placeholder="Player 1"/>
+			<input type="text" name="name" placeholder="Player 2"/>
+			<input type="text" name="name" placeholder="Player 3"/>
+			<input type="text" name="name" placeholder="Player 4"/>
+		</fieldset>
+		
+		<fieldset id="Kartendecks">
+			<legend>Which deck would you like to play with?</legend>
+			<select name="Select" id="cardContent">
+				<option value="Letters"selected>Letters</option>
+				<option value="Animals">Animals</option>
+				<option value="Cities">Actors</option>
 			</select>
-
-			<h3>How many pairs do you wanna play with?</h3>
-			<input name="numplayers" placeholder="pairs" min="1" max="26"
-				type="number">
-
-
-			<h3>How many players are you?</h3>
-			<input name="numplayers" placeholder="number of players" min="1"
-				max="4" type="number">
-
-			<h3>Please type in your names!</h3>
-			<input name="name" placeholder="Player 1" type="text"> <br>
-			<input name="name" placeholder="Player 2" type="text"> <br>
-			<input name="name" placeholder="Player 3" type="text"> <br>
-			<input name="name" placeholder="Player 4" type="text"><br>
-			<button type="button" id="insert">Eingabe</button>
-			<button id="start" type="button">Let's go!</button>
+		</fieldset>
+			
+			
+		<fieldset id="anzahlKartenpaare">
+			<legend>How many pairs would you like to play with?</legend>
+			<input type="number" name="Kartenpaare" placeholder="1 - 10 Kartenpaare" min="1" max="10" />
+		</fieldset>	
+		
+		<fieldset id="startGame">
+			<button type="button" id="startButton">Start</button>
 		</fieldset>
 
-	</div>
 </header>
+
+
+
 	<section id="spielfeld"></section>
-
-<footer>
-
-	<section id="spielernamen"></section>
-
-</footer>
 </body>
+
+<aside>
+	<section id="playersnames"></section>
+</aside>
+
 </html>

@@ -1,40 +1,49 @@
+.hiddenHeader {
+	display:none;
+}
+
+.cardopen {
+	float: left; 
+	height: 5em; 
+	width: 5em; 
+	background-color: white; 
+	margin: 1.5em; 
+	text-align: center; 
+	padding: 2em; 
+	color: #D0A9F5;
+	position: relative;
+	font-family: Helvetica;
+}
+
+.cardhidden {
+	float: left; 
+	height: 5em; 
+	width: 5em; 
+	background-color: #D0A9F5; 
+	margin: 1.5em; 
+	text-align: center; 
+	padding: 2em;
 	
-}.open {
-	float: left; 
-	height: 5em; 
-	width: 5em; 
-	background-color: #dfdee0; 
-	margin: 1.5em; 
-	text-align: center; 
-	padding: 2em; 
+	 
 }
 
-.hidden {
-	float: left; 
-	height: 5em; 
-	width: 5em; 
-	background-color: #dfce5c; 
-	margin: 1.5em; 
-	text-align: center; 
-	padding: 2em; 
-}
-
-.hidden h3 {
-	color: #dfce5c;
+.cardhidden h3 {
+	color: #D0A9F5;
+	font-family: Helvetica;
 }
 
 
 
-.taken {
+.cardtaken {
 	float: left; 
 	height: 5em; 
 	width: 5em; 
-	background-color: #fff; 
+	background-color: white; 
 	margin: 1.5em; 
 	text-align: center; 
 	padding: 2em; 
-	color: #fff;
-	visibility:hidden;
+	color: white;
+	
 }
 
 .cardtaken h3 {
@@ -43,39 +52,33 @@
 
 
 .namen {
+	font-family: Helvetica;
+	color: #D0A9F5;
+	padding: 2em;
 	
 }
 
-.hiddenHeader {
-	display:none;
+footer {
+	position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+	height: 20%;
+	color: white;
+background-color: grey;
+
+
 }
 
-.letters {
-	float: left; 
-	height: 4em; 
-	width: 4em; 
-	background-color: #fbfcff; 
-	margin: 1.5em; 
-	text-align: center; 
-	padding: 1.5em; 
-	
+footer p {
+	float: left;
+	text-align: center;
 }
-.animals {
-	float: left; 
-	height: 6em; 
-	width: 6em; 
-	background-color: #b4dfb9; 
-	margin: 2em; 
-	text-align: center; 
-	padding: 2em; 
+
+
+#spielernamen {
+
 }
-.cities {
-	float: left; 
-	height: 5.5em; 
-	width: 5.5em; 
-	background-color: #debcdf; 
-	margin: 1.5em; 
-	text-align: center; 
-	padding: 2em; 
-	
+#spielfeld {
+
 }

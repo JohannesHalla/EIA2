@@ -5,148 +5,139 @@ Datum: 06.05.2018
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert.
 
-Leider funktioniert der Aufruf der Hauptfunktion "main" nicht. Im HTML entsteht kein Spielfeld, obwohl ich die Funktion nach dem Klick auf den "Lets-Go-Button" aufrufe.
-Sitzen irgendwelche Klammern falsch?
+Korrigierte Variante
 */
-var Aufgabe4;
-(function (Aufgabe4) {
-    let numPlayers;
-    let numPairs;
-    let cardContent = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-    let cardPush = [];
-    var numPairsInt;
-    var numPlayerInt;
-    let numOpenCards = 0;
-    let clickedCards = [];
-    let x = 0;
+var Memory04;
+(function (Memory04) {
+    let cardContent = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
     let newArray = [];
+    let cardOpen = [];
+    let numPairs;
+    let numPlayer;
+    let numCardsOpen = 0;
+    let openArray = [];
+    let cardsTaken = [];
+    let x = 0;
     let inputs = document.getElementsByTagName("input");
     document.addEventListener('DOMContentLoaded', init);
     function init() {
-        let startButton = document.getElementById("start");
+        let startButton = document.getElementById("startButton");
         startButton.addEventListener("click", main);
     }
-    //Hauptfunktion Ablauf   
+    //Mainfunktion Memory  
     function main() {
         let header = document.getElementsByTagName("header");
         header[0].classList.add("hiddenHeader");
-        console.log("Header ist versteckt");
-        let players = parseInt(inputs[1].value);
-        let amountCards = parseInt(inputs[0].value);
+        let players = parseInt(inputs[0].value);
+        let amountCards = parseInt(inputs[5].value);
         if (players <= 4 && players > 0 && amountCards > 0 && amountCards <= 10) {
+            //player();
             createCardList();
-            enterName();
+            createPlayers();
             createCards();
         }
-        /*     else {
-                 alert("Undefined.");
-                 location.reload(true);
-             }*/
+        else {
+            alert("Undefined!");
+            location.reload(true);
+        }
     }
-    // Spielernamen erzeugen
-    function enterName() {
-        let numPlayers = parseInt(inputs[1].value);
-        let node = document.getElementById("spielernamen");
+    //Spielernamen erzeugen
+    function createPlayers() {
+        let players = parseInt(inputs[0].value);
+        let node = document.getElementById("playersnames");
         let childNodeHTML;
-        for (let i = 0; i < numPlayers; i++) {
-            let spielerName = inputs[i + 1].value;
+        for (let i = 0; i < players; i++) {
+            let playerName = inputs[i + 1].value;
             childNodeHTML = "<div>";
             childNodeHTML += "<p class='namen'>";
-            childNodeHTML += spielerName;
+            childNodeHTML += playerName;
             childNodeHTML += "</p>";
-            childNodeHTML += "<p  id='score" + i + "'>";
+            childNodeHTML += "<p  id='Punktestand" + i + "'>";
             childNodeHTML += "0";
             childNodeHTML += "</p>";
             childNodeHTML += " </div> ";
             node.innerHTML += childNodeHTML;
         }
     }
-    // Inhalt der Karten erzeugen
+    //Karteninhalt erstellen   
     function createCardList() {
-        let amountCards = parseInt(inputs[1].value);
-        let select = document.getElementById("content");
+        let amountCards = parseInt(inputs[5].value);
+        let select = document.getElementById("cardContent");
         let chosenCardContent = select.value;
         for (let i = 1; i <= amountCards; i++) {
-            let content = Aufgabe4.deck[chosenCardContent].content[i - 1];
+            let content = Memory04.decks[chosenCardContent].cardContent[i - 1];
             newArray.push(content);
             newArray.push(content);
             cardContent.splice(0, 1);
+            console.log(newArray);
         }
     }
-    //Karten erzeugen
+    //Karten erstellen   
     function createCards() {
-        let amountPairs = parseInt(inputs[1].value);
+        let amountCards = parseInt(inputs[5].value);
         let node = document.getElementById("spielfeld");
         let childNodeHTML;
-        let i = 0;
-        for (let i = 0; i < amountPairs * 2; i++) {
+        for (let i = 0; i < amountCards * 2; i++) {
             var random = Math.floor(Math.random() * Math.floor(newArray.length));
-            childNodeHTML = "<div  class='hidden" + "' id='Karte" + i + "'>";
+            childNodeHTML = "<div  class='card" + "hidden" + "' id='Karte" + i + "'>";
             childNodeHTML += "<h3>";
             childNodeHTML += newArray[random];
             childNodeHTML += "</h3>";
             childNodeHTML += " </div> ";
             node.innerHTML += childNodeHTML;
             newArray.splice(random, 1);
-            var status = document.getElementsByClassName("hidden");
+            var status = document.getElementsByClassName("cardhidden");
             for (let i = 0; i < status.length; i++) {
                 status[i].addEventListener("click", changeStatus);
             }
         }
     }
-    // Karte anklickbar
-    var status = document.getElementsByClassName("hidden");
-    for (let i = 0; i < status.length; i++) {
-        status[i].addEventListener("click", changeStatus);
-    }
-    // Status von hidden auf open
+    // Karten aufdecken
     function changeStatus(_event) {
-        let t = _event.currentTarget;
-        if (t.className == "hidden") {
-            t.classList.remove("hidden");
-            t.classList.add("open");
-            numOpenCards++;
-            if (numOpenCards == 2) {
-                setTimeout(compareContent, 2000); // Zeit
+        let target = _event.currentTarget;
+        if (target.classList.contains("cardhidden")) {
+            target.classList.remove("cardhidden");
+            target.classList.add("cardopen");
+            numCardsOpen++;
+            if (numCardsOpen == 2) {
+                setTimeout(compareCards, 1500);
             }
-            if (numOpenCards > 2) {
-                t.classList.remove("open");
-                t.classList.add("hidden");
+            if (numCardsOpen > 2) {
+                target.classList.remove("cardopen");
+                target.classList.add("cardhidden");
             }
         }
     }
-    //  console.log(numOpenCards);
     // Karten vergleichen
-    function compareContent() {
-        let karte1 = document.getElementsByClassName("open")[0];
-        let karte2 = document.getElementsByClassName("open")[1];
-        clickedCards.push(karte1, karte2);
-        if (clickedCards[0].innerHTML == clickedCards[1].innerHTML) {
-            // Karten werden vom Spielfeld genommen
-            clickedCards[0].classList.remove("open");
-            clickedCards[0].classList.add("taken");
-            clickedCards[1].classList.remove("open");
-            clickedCards[1].classList.add("taken");
+    function compareCards() {
+        let amountCards = parseInt(inputs[5].value);
+        let karte1 = document.getElementsByClassName("cardopen")[0];
+        let karte2 = document.getElementsByClassName("cardopen")[1];
+        openArray.push(karte1, karte2);
+        console.log(openArray);
+        if (openArray[0].innerHTML == openArray[1].innerHTML) {
+            openArray[0].classList.remove("cardopen");
+            openArray[1].classList.remove("cardopen");
+            openArray[0].classList.add("cardtaken");
+            openArray[1].classList.add("cardtaken");
+            console.log("Kartenpaar abeglegt");
             x++;
             let playerScore = x.toString();
-            document.getElementById('score').innerHTML = playerScore;
-            ende();
-            console.log(x);
-        }
-        else {
-            clickedCards[0].classList.remove("open");
-            clickedCards[1].classList.remove("open");
-            clickedCards[0].classList.add("hidden");
-            clickedCards[1].classList.add("hidden");
-        }
-        numOpenCards = 0;
-        // clickedCards-Array Inhalt löschen
-        clickedCards.splice(0, 2);
-        function ende() {
-            if (x == numPairsInt) {
-                alert("Herzlichen Glückwunsch!");
+            document.getElementById('Punktestand0').innerHTML = playerScore;
+            // Gratulation
+            if (x == amountCards) {
+                alert("Congratulations!");
+                location.reload(true);
             }
         }
+        else {
+            openArray[0].classList.remove("cardopen");
+            openArray[1].classList.remove("cardopen");
+            openArray[0].classList.add("cardhidden");
+            openArray[1].classList.add("cardhidden");
+        }
+        numCardsOpen = 0;
+        openArray.splice(0, 2);
     }
-})(Aufgabe4 || (Aufgabe4 = {}));
+})(Memory04 || (Memory04 = {}));
 //# sourceMappingURL=ProcessformMemory.js.map
