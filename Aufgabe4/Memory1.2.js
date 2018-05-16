@@ -25,5 +25,6 @@ var Aufgabe4;
         size: 40,
         cssClass: "cities",
     };
+    Aufgabe4.players = {};
 })(Aufgabe4 || (Aufgabe4 = {}));
 //# sourceMappingURL=Memory1.2.js.map

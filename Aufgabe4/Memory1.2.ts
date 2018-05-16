@@ -48,4 +48,13 @@ namespace Aufgabe4 {
 
     }
 
+
+    export interface Player {
+        name: string;
+        points: number;
+    }
+    export interface Players {
+        [players: string]: Player;
+    }
+    export let players: Players = {};
 }
