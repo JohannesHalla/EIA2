@@ -23,12 +23,7 @@ namespace Memory04 {
 
     let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
 
-
-
-
     document.addEventListener('DOMContentLoaded', init);
-
-
 
     function init(): void {
         let startButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("startButton");
