@@ -13,5 +13,6 @@ var Memory04;
         cardContent: ["Berlin", "Hamburg", "New York", "Tokyo", "Oslo", "Rom", "Paris", "Wien", "Moskau", "Amsterdam", "Seoul"],
         cssClass: "cities"
     };
+    Memory04.players = {};
 })(Memory04 || (Memory04 = {}));
 //# sourceMappingURL=Memory1.2.js.map
