@@ -29,7 +29,7 @@ namespace Memory04 {
 
     export interface Player {
         name: string;
-        points: number;
+        score: number;
     }
     
     export interface Players {
