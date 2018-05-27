@@ -5,7 +5,7 @@ var L04_Interfaces;
     function init(_event) {
         let insertButton = document.getElementById("insert");
         let refreshButton = document.getElementById("refresh");
-        let searchButton = document.getElementById("checkSearch");
+        let searchButton = document.getElementById("searchbutton");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
         searchButton.addEventListener("click", refresh2);
