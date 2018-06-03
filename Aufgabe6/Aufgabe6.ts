@@ -13,7 +13,7 @@ namespace L04_Interfaces {
         let searchButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("searchbutton");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
-        searchButton.addEventListener("click", refresh2);
+        searchButton.addEventListener("click", search);
     }
 
     function insert(_event: Event): void {
@@ -63,7 +63,7 @@ namespace L04_Interfaces {
         }           
     }
     
-    function refresh2(_event: Event): void {
+    function search(_event: Event): void {
         let mtrkl: string = inputs[6].value;
         
         let xhr: XMLHttpRequest = new XMLHttpRequest();

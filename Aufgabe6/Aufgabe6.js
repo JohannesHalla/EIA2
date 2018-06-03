@@ -8,7 +8,7 @@ var L04_Interfaces;
         let searchButton = document.getElementById("searchbutton");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
-        searchButton.addEventListener("click", refresh2);
+        searchButton.addEventListener("click", search);
     }
     function insert(_event) {
         let genderButton = document.getElementById("male");
@@ -50,7 +50,7 @@ var L04_Interfaces;
             output.value += xhr.response;
         }
     }
-    function refresh2(_event) {
+    function search(_event) {
         let mtrkl = inputs[6].value;
         let xhr = new XMLHttpRequest();
         xhr.open("GET", address + "?command=search&searchFor=" + mtrkl, true);
