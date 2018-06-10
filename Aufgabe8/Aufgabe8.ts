@@ -5,7 +5,6 @@ Matrikel: 258434
 Datum: 10.06.18
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
-
 */
 
 namespace Aufgabe8 {
