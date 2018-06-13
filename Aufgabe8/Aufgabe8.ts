@@ -1,15 +1,15 @@
 /*
-Aufgabe: 8
-Name: Johannes Halla   
-Matrikel: 258434
-Datum: 10.06.18
+Aufgabe:    8 
+Name:       Johannes Halla
+Matrikel:   258434
+Datum:      13.06.2018
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
 
-namespace Aufgabe8 {
+namespace aufgabe8 {
     window.addEventListener("load", init);
-    let address: string = "https://johannestestapp.herokuapp.com";
+    let address: string = "https://muelle2k.herokuapp.com";
 
     let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
 
@@ -18,7 +18,7 @@ namespace Aufgabe8 {
         console.log("Init");
         let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("insert");
         let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
-        let searchButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("search");
+        let searchButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("checkSearch");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
         searchButton.addEventListener("click", search);

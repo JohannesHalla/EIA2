@@ -1,5 +1,5 @@
-var Aufgabe8;
-(function (Aufgabe8) {
-    Aufgabe8.studiHomoAssoc = {};
-})(Aufgabe8 || (Aufgabe8 = {}));
+var aufgabe8;
+(function (aufgabe8) {
+    aufgabe8.studiHomoAssoc = {};
+})(aufgabe8 || (aufgabe8 = {}));
 //# sourceMappingURL=interface.js.map

@@ -1,21 +1,21 @@
 /*
-Aufgabe: 8
-Name: Johannes Halla
-Matrikel: 258434
-Datum: 10.06.18
+Aufgabe:    8
+Name:       Johannes Halla
+Matrikel:   258434
+Datum:      13.06.2018
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-var Aufgabe8;
-(function (Aufgabe8) {
+var aufgabe8;
+(function (aufgabe8) {
     window.addEventListener("load", init);
-    let address = "https://johannestestapp.herokuapp.com";
+    let address = "https://muelle2k.herokuapp.com";
     let inputs = document.getElementsByTagName("input");
     function init(_event) {
         console.log("Init");
         let insertButton = document.getElementById("insert");
         let refreshButton = document.getElementById("refresh");
-        let searchButton = document.getElementById("search");
+        let searchButton = document.getElementById("checkSearch");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
         searchButton.addEventListener("click", search);
@@ -74,5 +74,5 @@ var Aufgabe8;
             output.value += xhr.response;
         }
     }
-})(Aufgabe8 || (Aufgabe8 = {}));
+})(aufgabe8 || (aufgabe8 = {}));
 //# sourceMappingURL=Aufgabe8.js.map

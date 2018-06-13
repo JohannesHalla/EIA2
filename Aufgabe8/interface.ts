@@ -1,4 +1,4 @@
-namespace Aufgabe8 {
+namespace aufgabe8 {
    
     export interface Studi {
         name: string;
