@@ -1,3 +1,13 @@
+/*
+Aufgabe:    9
+Name:       Johannes Halla
+Matrikel:   258434
+Datum:      16.06.2018
+    
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+*/
+
+
 namespace unterwasserwelt {
     
     window.addEventListener("load", init);
