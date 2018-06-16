@@ -202,7 +202,7 @@ function drawBubbleBig( _x: number, _y: number, _radius: number ): void {
 // Blubberblasen festgelegt
         
         
-      drawBubbles(370, 50, 50, 200, 10);
+      drawBubbles(370, 50, 30, 200, 10);
         function drawBubbles(_x: number, _y: number, _w: number, _h: number, _a: number): void {
 
             for (let i: number = 0; i < _a; i++) { 

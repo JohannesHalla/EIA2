@@ -151,7 +151,7 @@ var unterwasserwelt;
             crc2.fill();
         }
         // Blubberblasen festgelegt
-        drawBubbles(370, 50, 50, 200, 10);
+        drawBubbles(370, 50, 30, 200, 10);
         function drawBubbles(_x, _y, _w, _h, _a) {
             for (let i = 0; i < _a; i++) {
                 let width = Math.random() * _w;
