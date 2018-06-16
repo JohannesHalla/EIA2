@@ -208,7 +208,7 @@ function drawBubbleBig( _x: number, _y: number, _radius: number ): void {
             for (let i: number = 0; i < _a; i++) { 
                  let width: number = Math.random() * _w;
                  let height: number = Math.random() * _h;
-                 let scale: number = Math.random() * 13;
+                 let scale: number = Math.random() * 10;
 
             crc2.beginPath();
             crc2.arc(_x + width, _y + height, scale, 0, 3 * Math.PI);

@@ -156,7 +156,7 @@ var unterwasserwelt;
             for (let i = 0; i < _a; i++) {
                 let width = Math.random() * _w;
                 let height = Math.random() * _h;
-                let scale = Math.random() * 13;
+                let scale = Math.random() * 10;
                 crc2.beginPath();
                 crc2.arc(_x + width, _y + height, scale, 0, 3 * Math.PI);
                 crc2.stroke();
