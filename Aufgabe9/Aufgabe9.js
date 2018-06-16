@@ -20,7 +20,7 @@ var unterwasserwelt;
         drawStones(600, 300);
         function drawStones(_x, _y) {
             crc2.beginPath();
-            crc2.fillStyle = "rgb(140, 140, 140)";
+            crc2.fillStyle = "rgb(115, 115, 115)";
             crc2.moveTo(_x, _y);
             crc2.lineTo(_x + 10, _y - 30);
             crc2.lineTo(_x + 20, _y - 30);
@@ -64,9 +64,9 @@ var unterwasserwelt;
             crc2.fill();
         }
         // Seestern       
-        drawStar(500, 320);
-        drawStar(100, 330);
-        function drawStar(_x, _y) {
+        drawStarfish(500, 320);
+        drawStarfish(100, 330);
+        function drawStarfish(_x, _y) {
             crc2.beginPath();
             crc2.fillStyle = "rgb(255,106,106)";
             crc2.moveTo(_x, _y + 25);

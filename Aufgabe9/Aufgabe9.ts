@@ -20,6 +20,8 @@ namespace unterwasserwelt {
 
         ground(height - 60);
         
+        
+        
  // Felsen
         drawStones(-30, 300);
         drawStones(200, 300);
@@ -27,7 +29,7 @@ namespace unterwasserwelt {
         
          function drawStones(_x : number, _y: number): void {
         crc2.beginPath();
-        crc2.fillStyle = "rgb(140, 140, 140)";
+        crc2.fillStyle = "rgb(115, 115, 115)";
         crc2.moveTo(_x, _y);
         crc2.lineTo(_x +10, _y - 30);
         crc2.lineTo(_x + 20, _y -30);
@@ -86,10 +88,10 @@ namespace unterwasserwelt {
         
  // Seestern       
         
-        drawStar(500, 320);
-        drawStar(100, 330);
+        drawStarfish(500, 320);
+        drawStarfish(100, 330);
         
-function drawStar(_x: number, _y: number ): void {
+function drawStarfish(_x: number, _y: number ): void {
         crc2.beginPath();
         crc2.fillStyle = "rgb(255,106,106)"; 
         crc2.moveTo(_x, _y+25);
@@ -271,8 +273,6 @@ function drawBubbleBig( _x: number, _y: number, _radius: number ): void {
         crc2.fillRect(0, 0, 640, 360);
 
   }
-    
-    
 // Grund    
     function ground(_y: number) {
     crc2.fillStyle = "rgb(139, 115, 085)"; 
