@@ -1,3 +1,13 @@
+/*
+Aufgabe:    11
+Name:       Johannes Halla
+Matrikel:   258434
+Datum:      30.06.2018
+    
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+*/
+
+
 namespace Aufgabe11 {
     
     window.addEventListener("load", init);
