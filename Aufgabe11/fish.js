@@ -5,11 +5,11 @@ var Aufgabe11;
         constructor() {
             super();
         }
-        setPosition() {
+        position() {
             this.x = Math.random() * Aufgabe11.crc2.canvas.width;
-            this.y = Math.random() * 180;
+            this.y = Math.random() * 250;
         }
-        setColor() {
+        colour() {
             this.r = Math.random() * 255;
             this.g = Math.random() * 255;
             this.b = Math.random() * 255;

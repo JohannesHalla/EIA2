@@ -6,13 +6,13 @@ namespace Aufgabe11 {
 
         constructor() {
             super();
-            this.border = Math.random() * (360 - 290) + 290;
+            this.border = Math.random() * (360 - 300) + 320;
         }
 
-        setColor(): void {
-            this.r = 90;
-            this.g = 60;
-            this.b = 0;
+        colour(): void {
+            this.r = 200;
+            this.g = 200;
+            this.b = 70;
         }
 
         move(): void {
@@ -26,10 +26,11 @@ namespace Aufgabe11 {
 
         draw(): void {
             crc2.beginPath();
-            crc2.arc(this.x, this.y, 5, 0, 2 * Math.PI);
+            crc2.arc(this.x, this.y, 4, 0, 2 * Math.PI);
             crc2.closePath();
             crc2.fillStyle = "rgb(" + this.r + "," + this.g + "," + this.b + ")";
             crc2.fill();
+            crc2.stroke();
         }
     }
 

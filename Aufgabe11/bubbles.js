@@ -4,11 +4,11 @@ var Aufgabe11;
         constructor() {
             super();
         }
-        setPosition() {
-            this.x = Math.random() * (500 - 450) + 450;
+        position() {
+            this.x = Math.random() * (500 - 450) + 350;
             this.y = Math.random() * 180;
         }
-        setColor() {
+        colour() {
             this.r = 0;
             this.g = 0;
             this.b = 0;

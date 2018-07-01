@@ -2,20 +2,16 @@ var Aufgabe11;
 (function (Aufgabe11) {
     class MovingObjects {
         constructor() {
-            this.setPosition();
-            this.setColor();
+            this.position();
+            this.colour();
         }
-        setPosition() {
-            //
+        position() {
         }
-        setColor() {
-            //    
+        colour() {
         }
         move() {
-            //
         }
         draw() {
-            //
         }
     }
     Aufgabe11.MovingObjects = MovingObjects;

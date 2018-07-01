@@ -3,18 +3,19 @@ namespace Aufgabe11 {
     export class Fish extends MovingObjects{
  
 
+       
         // declare method without keyword function
         
         constructor() {
             super();    
         }
         
-        setPosition(): void {
+        position(): void {
             this.x = Math.random() * crc2.canvas.width;
-            this.y = Math.random() * 180;    
+            this.y = Math.random() * 250;    
         }
         
-        setColor(): void {
+        colour(): void {
             this.r = Math.random() * 255;
             this.g = Math.random() * 255;
             this.b = Math.random() * 255;

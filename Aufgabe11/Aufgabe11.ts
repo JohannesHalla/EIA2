@@ -1,4 +1,5 @@
 namespace Aufgabe11 {
+    
     window.addEventListener("load", init);
     let objects: MovingObjects[] = [];
     let n: number = 7;
@@ -12,7 +13,7 @@ namespace Aufgabe11 {
         canvas.style.border = "1px solid black";
 
 // Ablauf
-        
+                
         water(50);
         ground();
 
@@ -28,55 +29,67 @@ namespace Aufgabe11 {
         drawGras(80, 360);
         drawGras1(300, 360);
         drawGras2(600, 360);
-
-
+        
+        moveObjects();
+        drawObjects();
+        
+        
 
 
         imagedata = crc2.getImageData(0, 0, 640, 360);
         
 // Animation
 
+        for (let i: number = 0; i < n; i++) {
+            let fish: Fish = new Fish();
+            objects.push(fish);
+        }
 
-        
-        canvas.addEventListener("click", insertNewObjects);
+        for (let i: number = 0; i < n - 2; i++) {
+            let bubble: Bubbles = new Bubbles();
+            bubble.r = Math.random() * 10;
+            objects.push(bubble);
+        }
+
+     
+        canvas.addEventListener("click", insertFood);
         animate();
     }
+    
+// Fische füttern  
 
-    function insertNewObjects(_event: MouseEvent): void {
-        let mouseX: number = _event.clientX;
-        let mouseY: number = _event.clientY;
+    function insertFood(_event: MouseEvent): void {
+        let clickX: number = _event.clientX;
+        let clickY: number = _event.clientY;
 
         for (let i: number = 0; i < 3; i++) {
             let food: Food = new Food();
             if (i == 1) {
-                food.x = mouseX;
-                food.y = mouseY;
+                food.x = clickX;
+                food.y = clickY;
                 objects.push(food);
             } else {
-                food.x = mouseX + Math.random() * 40 - 2;
-                food.y = mouseY + Math.random() * 30 - 2;
+                food.x = clickX + Math.random() * 40 - 2;
+                food.y = clickY + Math.random() * 30 - 2;
                 objects.push(food);
             }
         }
     } 
 
-        animate();
     
 
     function animate(): void {
         window.setTimeout(animate, 10);
 
         crc2.putImageData(imagedata, 0, 0);
-
         
+         moveObjects();
+         drawObjects();
+
+
     }
-    
-    moveObjects();
-    drawObjects();
 
-// Move & Draw
-
-     function moveObjects(): void {
+    function moveObjects(): void {
         for (let i: number = 0; i < objects.length; i++) {
             objects[i].move();
         }
@@ -86,6 +99,8 @@ namespace Aufgabe11 {
         for (let i: number = 0; i < objects.length; i++)
             objects[i].draw();
     }
+    
+   
     
 
 

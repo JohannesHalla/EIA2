@@ -8,24 +8,24 @@ namespace Aufgabe11 {
         b: number;
         
         constructor() {
-            this.setPosition();
-            this.setColor();
+            this.position();
+            this.colour();
         }
         
-        setPosition(): void {
-            //
+        position(): void {
+            
         }
         
-        setColor(): void {
-            //    
+        colour(): void {
+                
         }
         
         move(): void {
-            //
+            
         }
         
         draw(): void {
-            //
+            
         }
     }
 

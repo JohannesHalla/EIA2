@@ -1,7 +1,6 @@
-namespace Aufgabe10 {
+/* namespace Aufgabe10 {
     window.addEventListener("load", init);
     let bigfishes: Bigfish[] = [];
-    let fishes: Fish[] = [];
     let bubbles: Bubbles[] = [];
     let n: number = 7;
     let k: number = 3;
@@ -39,10 +38,8 @@ namespace Aufgabe10 {
 // Animation
 
         for (let i: number = 0; i < n; i++) {
-            let fish: Fish = new Fish();
             fish.x = Math.random() * crc2.canvas.width;
             fish.y = Math.random() * 250;
-            fishes.push(fish);
         }
 
         for (let i: number = 0; i < n - 2; i++) {
