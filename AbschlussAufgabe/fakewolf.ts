@@ -32,14 +32,17 @@ namespace Abschlussaufgabe {
             crc2.lineTo(this.x + 143, this.y + 75);
             crc2.lineTo(this.x + 143, this.y);
             crc2.closePath();
-            //Main.crc2.stroke();   //Hitbox anzeigen
+            //crc2.stroke();   //Hitbox anzeigen
 
-            //Wolfkörper
+            //Rehkörper
             crc2.beginPath();
             crc2.moveTo(this.x + 40, this.y + 25);
             crc2.quadraticCurveTo(this.x + 40 + 120, this.y + 25 - 30, this.x + 40 + 100, this.y + 25 + 50);
             crc2.quadraticCurveTo(this.x + 40 + 70, this.y - 10, this.x + 40, this.y + 25 + 50);
             crc2.quadraticCurveTo(this.x + 40 + 10, this.y + 25 + 25, this.x + 40, this.y + 25);
+            //PUNKTE
+
+            
 
             //Kopf         
             crc2.lineTo(this.x + 40 - 10, this.y + 25 - 10);
@@ -49,11 +52,11 @@ namespace Abschlussaufgabe {
             crc2.quadraticCurveTo(this.x + 40 - 5, this.y + 25 - 5, this.x + 40 - 10, this.y + 25 - 10);
 
             // Ohren
-            crc2.moveTo(this.x + 40 - 10, this.y + 25 - 10);
-            crc2.lineTo(this.x + 40 - 5, this.y + 25 - 20);
-            crc2.lineTo(this.x + 40 - 15, this.y + 25 - 15);
-            crc2.lineTo(this.x + 40 - 15, this.y + 25 - 25);
-            crc2.lineTo(this.x + 40 - 20, this.y + 25 - 18);
+            crc2.moveTo(this.x + 30, this.y + 25 - 10);
+            crc2.lineTo(this.x + 38, this.y + 8);
+            crc2.lineTo(this.x + 25, this.y + 25 - 15);
+            crc2.lineTo(this.x + 25, this.y + 25 - 25);
+            crc2.lineTo(this.x + 20, this.y + 25 - 18);
             crc2.closePath();
 
             // Mund
@@ -71,7 +74,7 @@ namespace Abschlussaufgabe {
             // Schwanz
             crc2.moveTo(this.x + 130, this.y + 25);
             crc2.quadraticCurveTo(this.x + 150, this.y + 15, this.x + 120, this.y + 20);
-
+            
 
             crc2.fillStyle = '#8B5A2B';
             crc2.fill();

@@ -23,13 +23,14 @@ var Abschlussaufgabe;
             Abschlussaufgabe.crc2.lineTo(this.x + 143, this.y + 75);
             Abschlussaufgabe.crc2.lineTo(this.x + 143, this.y);
             Abschlussaufgabe.crc2.closePath();
-            //Main.crc2.stroke();   //Hitbox anzeigen
-            //Wolfkörper
+            //crc2.stroke();   //Hitbox anzeigen
+            //Rehkörper
             Abschlussaufgabe.crc2.beginPath();
             Abschlussaufgabe.crc2.moveTo(this.x + 40, this.y + 25);
             Abschlussaufgabe.crc2.quadraticCurveTo(this.x + 40 + 120, this.y + 25 - 30, this.x + 40 + 100, this.y + 25 + 50);
             Abschlussaufgabe.crc2.quadraticCurveTo(this.x + 40 + 70, this.y - 10, this.x + 40, this.y + 25 + 50);
             Abschlussaufgabe.crc2.quadraticCurveTo(this.x + 40 + 10, this.y + 25 + 25, this.x + 40, this.y + 25);
+            //PUNKTE
             //Kopf         
             Abschlussaufgabe.crc2.lineTo(this.x + 40 - 10, this.y + 25 - 10);
             Abschlussaufgabe.crc2.quadraticCurveTo(this.x + 40 - 20, this.y + 25 - 20, this.x + 40 - 25, this.y + 25 - 15);
@@ -37,11 +38,11 @@ var Abschlussaufgabe;
             Abschlussaufgabe.crc2.quadraticCurveTo(this.x + 40 - 40, this.y + 25 + 15, this.x + 40 - 30, this.y + 25 + 10);
             Abschlussaufgabe.crc2.quadraticCurveTo(this.x + 40 - 5, this.y + 25 - 5, this.x + 40 - 10, this.y + 25 - 10);
             // Ohren
-            Abschlussaufgabe.crc2.moveTo(this.x + 40 - 10, this.y + 25 - 10);
-            Abschlussaufgabe.crc2.lineTo(this.x + 40 - 5, this.y + 25 - 20);
-            Abschlussaufgabe.crc2.lineTo(this.x + 40 - 15, this.y + 25 - 15);
-            Abschlussaufgabe.crc2.lineTo(this.x + 40 - 15, this.y + 25 - 25);
-            Abschlussaufgabe.crc2.lineTo(this.x + 40 - 20, this.y + 25 - 18);
+            Abschlussaufgabe.crc2.moveTo(this.x + 30, this.y + 25 - 10);
+            Abschlussaufgabe.crc2.lineTo(this.x + 38, this.y + 8);
+            Abschlussaufgabe.crc2.lineTo(this.x + 25, this.y + 25 - 15);
+            Abschlussaufgabe.crc2.lineTo(this.x + 25, this.y + 25 - 25);
+            Abschlussaufgabe.crc2.lineTo(this.x + 20, this.y + 25 - 18);
             Abschlussaufgabe.crc2.closePath();
             // Mund
             Abschlussaufgabe.crc2.moveTo(this.x + 40 - 30, this.y + 25 + 10);

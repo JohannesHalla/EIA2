@@ -20,7 +20,6 @@ var Abschlussaufgabe;
     let lastCount = 0;
     let maxEnemies = 5;
     let maxFakewolf = 2;
-    let wolfspeed = 3;
     function start(_event) {
         if (!isRunning) {
             Render();
@@ -51,6 +50,7 @@ var Abschlussaufgabe;
         Abschlussaufgabe.canvas.addEventListener("touchstart", screenTouch, false);
         document.getElementById("neustart").addEventListener("click", neuStart);
         document.getElementById("start").addEventListener("click", start);
+        alert("Herzlich Willkommen!\nRette das Schaf Siggi und töte durch einen Klick die Wölfe!\nAber pass auf, sie werden schneller und lass Dich nicht von den Rehen verwirren!\nViel Spaß!");
     }
     function neuStart(_event) {
         document.getElementById('gameStats').innerHTML = "";
@@ -59,8 +59,8 @@ var Abschlussaufgabe;
         lastCount = 0;
         for (let i = 0; i < enemies.length; i++) {
             resetWolf(i);
+            enemies[i].speed = 2;
         }
-        wolfspeed = 2;
         Render();
     }
     // Render
@@ -74,7 +74,6 @@ var Abschlussaufgabe;
         moveObjects();
         collisionDetection();
         drawObjects();
-        console.log("speed " + enemies[0].speed);
     }
     function DrawGrass() {
         Abschlussaufgabe.crc2.fillStyle = "rgb(61,179,64)";
@@ -89,7 +88,7 @@ var Abschlussaufgabe;
     function drawObjects() {
         sheep.draw();
         for (let i = 0; i < enemies.length; i++) {
-            //Wenn außerhalb des canvas, dann den Wolf löschenund zurücksetzen
+            //Wenn außerhalb des canvas, dann den Wolf löschen und zurücksetzen
             if (enemies[i].x <= -enemies[i].width) {
                 resetWolf(i);
             }
@@ -113,7 +112,6 @@ var Abschlussaufgabe;
                         document.getElementById('gameStats').innerHTML = "<p>Du hast " + count + " Wölfe getötet!</p>";
                         if (count >= (lastCount + 10)) {
                             lastCount = count;
-                            wolfspeed += 0.5;
                             for (let i = 0; i < enemies.length; i++) {
                                 enemies[i].speed += 0.5;
                             }

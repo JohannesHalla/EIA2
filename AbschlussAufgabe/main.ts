@@ -19,7 +19,6 @@ namespace Abschlussaufgabe {
     let lastCount: number = 0;
     let maxEnemies: number = 5;
     let maxFakewolf: number = 2;
-    let wolfspeed: number = 3;
     export let crc2: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement;
 
@@ -55,6 +54,9 @@ namespace Abschlussaufgabe {
         canvas.addEventListener("touchstart", screenTouch, false);
         document.getElementById("neustart").addEventListener("click", neuStart);
         document.getElementById("start").addEventListener("click", start);
+        
+        
+       alert("Herzlich Willkommen!\nRette das Schaf Siggi und töte durch einen Klick die Wölfe!\nAber pass auf, sie werden schneller und lass Dich nicht von den Rehen verwirren!\nViel Spaß!");
     }
 
     function neuStart(_event: Event): void {
@@ -64,24 +66,24 @@ namespace Abschlussaufgabe {
         lastCount = 0;
         for (let i: number = 0; i < enemies.length; i++) {
             resetWolf(i);
+            enemies[i].speed = 2
         }
-        wolfspeed = 2;
         Render();
     }
  
     // Render
-    function resetWolf(id: number) {      //Erstellt Wölfe
+    function resetWolf(id: number) {      //setzt position zurück
         enemies[id].position();
     }
 
-    function Render() {                 //Renderfunktion wird alle 10ms aufgerufen und "malt" den Canvas
+    function Render() {                 //Renderfunktion wird alle 10ms aufgerufen und malt den Canvas
         RenderTimeout = window.setTimeout(Render, 10);
         crc2.clearRect(0, 0, crc2.canvas.width, crc2.canvas.height);
         DrawGrass();
         moveObjects();
         collisionDetection();
         drawObjects();
-        console.log("speed " + enemies[0].speed);
+
     }
     function DrawGrass() {              // Hintergrund
         crc2.fillStyle = "rgb(61,179,64)";
@@ -96,7 +98,7 @@ namespace Abschlussaufgabe {
     function drawObjects() {            //Objekte zeichnen
         sheep.draw();
         for (let i = 0; i < enemies.length; i++) {
-            //Wenn außerhalb des canvas, dann den Wolf löschenund zurücksetzen
+            //Wenn außerhalb des canvas, dann den Wolf löschen und zurücksetzen
             if (enemies[i].x <= -enemies[i].width) {
                 resetWolf(i);
             }
@@ -105,14 +107,13 @@ namespace Abschlussaufgabe {
     }
 
 // Kollision
-        function clickCollision(clickX: number, clickY: number) {    //Kollisionsabfrage zwischen Klick/Tap und Wolf
+        function clickCollision(clickX: number, clickY: number) {    //Kollisionsabfrage zwischen Klick/Tap und enemie
         for (let i = 0; i < enemies.length; i++) {
             if (clickX > enemies[i].x && clickX < (enemies[i].x + enemies[i].width) &&
                 clickY > enemies[i].y && clickY < (enemies[i].y + enemies[i].height)) {
 
                 switch (i) {
                     case 5: {
-                        
                         break;
                     }
                     case 6: {
@@ -123,7 +124,6 @@ namespace Abschlussaufgabe {
                         document.getElementById('gameStats').innerHTML = "<p>Du hast " + count + " Wölfe getötet!</p>";
                         if (count >= (lastCount + 10)) {
                             lastCount = count;
-                            wolfspeed += 0.5;
                             for (let i: number = 0; i < enemies.length; i++) {
                                 enemies[i].speed += 0.5;
                             }
